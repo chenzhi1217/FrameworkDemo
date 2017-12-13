@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <!--android:indeterminateDrawable="@anim/progress_bar_rotate"-->
+<ProgressBar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/common_loading_layout"
+    android:layout_width="30dp"
+    android:layout_height="30dp"
+    android:indeterminate="true"
+    android:layout_gravity="center"/>

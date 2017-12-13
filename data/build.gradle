@@ -1,0 +1,52 @@
+apply plugin: 'com.android.library'
+apply plugin: 'org.greenrobot.greendao'
+
+
+android {
+    compileSdkVersion project.COMPILE_SDK_VERSION as int
+    buildToolsVersion project.BUILD_TOOLS_VERSION
+
+    defaultConfig {
+        minSdkVersion project.MIN_SDK_VERSION as int
+        targetSdkVersion project.TARGET_SDK_VERSION as int
+        versionCode project.VERSION_CODE as int
+        versionName project.VERSION_NAME
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    greendao {
+        schemaVersion 1//数据库版本号    
+        daoPackage 'com.framework.data.greendao'//设置DaoMaster、DaoSession、Dao包名    
+        targetGenDir 'src/main/java'//设置DaoMaster、DaoSession、Dao目录   
+        //targetGenDirTest：设置生成单元测试目录    
+        //generateTests：设置自动生成单元测试用例
+    }
+    
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:26+'
+    compile 'com.android.support:support-v4:26+'
+    compile 'com.android.support:design:26+'
+    //RxJava
+    compile 'io.reactivex:rxjava:1.2.1'
+    compile 'io.reactivex:rxandroid:1.2.1'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.0.0'
+    //retrofit网络框架
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.0.0'
+    compile 'com.squareup.retrofit2:converter-scalars:2.0.0'
+    //日志
+    compile 'com.vise.xiaoyaoyou:viselog:1.1.0'
+
+    //数据库GreenDao
+    compile 'org.greenrobot:greendao:3.2.0'
+    compile 'org.greenrobot:greendao-generator:3.2.0'
+}

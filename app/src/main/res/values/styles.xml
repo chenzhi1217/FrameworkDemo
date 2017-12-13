@@ -1,0 +1,67 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <!--actionbar的底色-->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <!--状态栏底色-->
+        <item name="colorPrimaryDark">@android:color/black</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="toolbarStyle">@style/ToolbarTheme</item>
+    </style>
+
+    <style name="ToolbarTheme" parent="Theme.AppCompat.Light">
+        <!-- 设置 toolbar 溢出菜单的文字的颜色 -->
+        <item name="android:textColor">@android:color/holo_red_dark</item>
+        <item name="actionMenuTextColor">@android:color/white</item>
+        <item name="colorButtonNormal">@android:color/white</item>
+        <item name="colorControlNormal">@android:color/white</item>
+    </style>
+
+    <style name="MyToolbarStyleBackground" parent="@style/MyToolbarStyleLight">
+        <item name="android:theme">@style/AppTheme.AppBarOverlay</item>
+        <item name="theme">@style/AppTheme.AppBarOverlay</item>
+        <item name="popupTheme">@style/AppTheme.PopupOverlay</item>
+        <item name="android:background">?attr/colorPrimary</item>
+    </style>
+
+    <style name="MyToolbarStyleLight" parent="@style/Widget.AppCompat.Toolbar">
+        <item name="titleTextAppearance">@style/Toolbar.TitleText.Light</item>
+        <item name="subtitleTextAppearance">@style/Toolbar.SubTitleText.Light</item>
+        <item name="android:minHeight">?attr/actionBarSize</item>
+        <item name="titleMargins">3dp</item>
+        <item name="colorControlNormal">@color/black</item>
+        <item name="contentInsetStart">0dp</item>
+    </style>
+
+    <!--Dark ActionBar，黑底白字-->
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="colorControlNormal">@color/black</item>
+    </style>
+
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="Toolbar.TitleText.Light" >
+        <item name="android:textColor">@color/black</item>
+        <!--<item name="android:textColor">?android:attr/textColorPrimary</item>-->
+    </style>
+
+    <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="Toolbar.SubTitleText.Light" >
+        <item name="android:textColor">@color/white</item>
+        <!--<item name="android:textColor">?android:attr/textColorSecondary</item>-->
+    </style>
+
+    <style name="Toolbar.SubTitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Subtitle">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+
+</resources>

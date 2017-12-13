@@ -1,0 +1,68 @@
+apply plugin: 'com.android.application'
+
+
+android {
+    compileSdkVersion project.COMPILE_SDK_VERSION as int
+    buildToolsVersion project.BUILD_TOOLS_VERSION
+    //默认配置
+    defaultConfig {
+        applicationId project.APP_PACKAGE
+        minSdkVersion project.MIN_SDK_VERSION as int
+        targetSdkVersion project.TARGET_SDK_VERSION as int
+        versionCode project.VERSION_CODE as int
+        versionName project.VERSION_NAME
+        flavorDimensions "versionCode"
+    }
+    
+    //编译配置
+    compileOptions{
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            //移除无用的resource文件
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField("boolean", "IS_DEBUG", "false")
+            debuggable true
+        }
+        debug {
+            minifyEnabled false
+            buildConfigField("boolean", "IS_DEBUG", "true")
+        }
+    }
+
+    productFlavors{
+        itest{
+            buildConfigField("int","APP_BUILD_TYPE","2")
+            applicationIdSuffix "itest"
+            resValue("string","app_name","测试版")
+        }
+        prepare{
+            buildConfigField("int","APP_BUILD_TYPE","1")
+            applicationIdSuffix "prepare"
+            resValue("string","app_name","预发布版")
+        }
+        online{
+            buildConfigField("int","APP_BUILD_TYPE","0")
+            resValue("string","app_name","正式版")
+        }
+    }
+
+    dataBinding{
+        enabled = true
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile project(':data'){
+//         = false
+    }
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.github.bumptech.glide:okhttp-integration:1.4.0'
+
+    
+}
