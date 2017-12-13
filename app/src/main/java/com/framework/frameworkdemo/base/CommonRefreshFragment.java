@@ -272,6 +272,8 @@ public abstract class CommonRefreshFragment<REQ extends BaseRequester,DATA,ITEM,
                 super.onError(requester, type, e);
             }
         }
+        
+        
     }
 
     /**

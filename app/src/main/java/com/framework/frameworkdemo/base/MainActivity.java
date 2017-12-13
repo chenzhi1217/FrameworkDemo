@@ -68,7 +68,9 @@ public class MainActivity extends AppCompatActivity {
         CommonUtils.setRadioButtonSize(this,R.drawable.lable_my_selector, (RadioButton) findViewById(R.id.main_radio_button_three), 22);
         CommonUtils.setRadioButtonSize(this,R.drawable.lable_news_selector, (RadioButton) findViewById(R.id.main_radio_button_two), 22);
     }
-
+    
+    //测试了下
+    
     /**
      * RadioGroup选中的监听
      */
